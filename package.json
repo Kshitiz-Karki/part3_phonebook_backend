@@ -1,0 +1,29 @@
+{
+  "name": "phonebook_backend",
+  "version": "1.0.0",
+  "description": "phonebook backend - full stack open",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kshitiz-Karki/phonebook_backend.git"
+  },
+  "author": "Kshitiz Karki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kshitiz-Karki/phonebook_backend/issues"
+  },
+  "homepage": "https://github.com/Kshitiz-Karki/phonebook_backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
