@@ -10,30 +10,30 @@ app.use(express.static('dist'))
 app.use(express.json())
 // app.use(morgan('tiny'))
 morgan.token('post_req', (req) => JSON.stringify(req.body))
-app.use(morgan(':method :url :status :res[content-length] - :response-time ms :post_req')) //using tiny format & token - minimal output 
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms :post_req')) //using tiny format & token - minimal output
 
 // let persons = [
-//     { 
+//     {
 //       "id": 1,
-//       "name": "Arto Hellas", 
+//       "name": "Arto Hellas",
 //       "number": "040-123456"
 //     },
-//     { 
+//     {
 //       "id": 2,
-//       "name": "Ada Lovelace", 
+//       "name": "Ada Lovelace",
 //       "number": "39-44-5323523"
 //     },
-//     { 
+//     {
 //       "id": 3,
-//       "name": "Dan Abramov", 
+//       "name": "Dan Abramov",
 //       "number": "12-43-234345"
 //     },
-//     { 
+//     {
 //       "id": 4,
-//       "name": "Mary Poppendieck", 
+//       "name": "Mary Poppendieck",
 //       "number": "39-23-6423122"
 //     }
-// ] 
+// ]
 
 // app.get('/', (req, res) => {
 //   res.send('<h1>Phonebook App</h1>')
@@ -50,7 +50,7 @@ app.get('/api/persons', (req, res) => {
 // app.get('/api/persons/:id', (req, res) => {
 //   const id = Number(req.params.id)
 //   const person = persons.find(person => person.id === id)
-  
+
 //   if (person) {
 //     res.json(person)
 //   } else {
@@ -67,7 +67,7 @@ app.get('/api/persons/:id', (req, res, next) => {
         res.status(404).end()
       }
     })
-   .catch(error => next(error))
+    .catch(error => next(error))
 })
 
 // app.delete('/api/persons/:id', (req, res) => {
@@ -78,9 +78,9 @@ app.get('/api/persons/:id', (req, res, next) => {
 
 app.delete('/api/persons/:id', (req, res, next) => {
   Person.findByIdAndRemove(req.params.id)
-    .then(result => res.status(204).end())
+    .then(() => res.status(204).end())
     .catch(error => next(error))
-  })
+})
 
 app.get('/info', (req, res) => {
   Person.find({}).then(persons => res.send(
@@ -97,15 +97,15 @@ app.get('/info', (req, res) => {
 //   const body = req.body
 
 //   if (!body.name || !body.number) {
-//     return res.status(400).json({ 
-//       error: 'name or number is missing' 
+//     return res.status(400).json({
+//       error: 'name or number is missing'
 //     })
 //   }
 
 //   if(persons.find(person => person.name === body.name))
 //   {
-//     return res.status(400).json({ 
-//       error: 'name must be unique' 
+//     return res.status(400).json({
+//       error: 'name must be unique'
 //     })
 //   }
 
@@ -136,7 +136,7 @@ app.post('/api/persons', (req, res, next) => {
 
   person
     .save().then(savedPerson => {
-    res.json(savedPerson)
+      res.json(savedPerson)
     })
     .catch(error => next(error))
   // persons = persons.concat(person)
